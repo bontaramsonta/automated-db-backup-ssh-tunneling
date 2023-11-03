@@ -1,0 +1,15 @@
+# This compose file can be used to run an example postgres database in remote machine to test db backup
+version: "3.7"
+
+services:
+  postgres-demo:
+    image: postgres
+    container_name: postgres-demo
+    environment:
+      POSTGRES_USER: ${db_user}
+      POSTGRES_PASSWORD: ${db_password}
+      POSTGRES_DB: ${db_name}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

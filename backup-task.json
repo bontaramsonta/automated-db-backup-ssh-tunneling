@@ -1,0 +1,5 @@
+{
+  "name": "backup-task",
+  "script": "touch file-$(date +\\%s)",
+  "cron_restart": "*/10 * * * * *"
+}
