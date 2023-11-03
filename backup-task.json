@@ -1,5 +1,6 @@
 {
   "name": "backup-task",
-  "script": "touch file-$(date +\\%s)",
-  "cron_restart": "*/10 * * * * *"
+  "script": "./start-backup.sh",
+  "cron_restart": "*/10 * * * * *",
+  "autorestart": false
 }

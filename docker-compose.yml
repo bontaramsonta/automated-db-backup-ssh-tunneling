@@ -4,12 +4,12 @@ version: "3.7"
 services:
   postgres-demo:
     image: postgres
-    container_name: postgres-demo
+    container_name: ${docker_container_name}
     environment:
-      POSTGRES_USER: ${db_user}
+      POSTGRES_USER: ${db_username}
       POSTGRES_PASSWORD: ${db_password}
-      POSTGRES_DB: ${db_name}
     ports:
       - "5432:5432"
     volumes:
+      - /dump:/dump
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
